@@ -25,7 +25,9 @@ public class AppartementService {
 	 }
 
 	 public List<Appartement> getAppartements() {
-		 return appartementRepository.findAll();
+		 List<Appartement> ap = appartementRepository.findAll();
+		 System.out.println(ap.size());
+		 return 	ap;
 	 }
 	 
 	 public Optional<Appartement> getAppartementsById(Long id) {

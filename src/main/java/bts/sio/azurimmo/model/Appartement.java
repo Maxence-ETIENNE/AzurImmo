@@ -34,5 +34,55 @@ public class Appartement {
 	@ManyToOne
 	@JoinColumn(name = "batiment_id")
 	private Batiment batiment;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public float getSurface() {
+		return surface;
+	}
+
+	public void setSurface(float surface) {
+		this.surface = surface;
+	}
+
+	public int getNbPieces() {
+		return nbPieces;
+	}
+
+	public void setNbPieces(int nbPieces) {
+		this.nbPieces = nbPieces;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Batiment getBatiment() {
+		return batiment;
+	}
+
+	public void setBatiment(Batiment batiment) {
+		this.batiment = batiment;
+	}
+	
+	
 	 
 }

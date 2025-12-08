@@ -23,8 +23,10 @@ public class AppartementController {
         return appartementService.saveAppartement(appartement);
     }
     
-    @GetMapping("/list")
+    @GetMapping("/")
     public List<Appartement> getAppartements() {
+    	
+    	System.out.println("NBAPPT" + appartementService.getAppartements().size());
         return appartementService.getAppartements();
     }
     
