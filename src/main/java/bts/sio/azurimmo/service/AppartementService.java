@@ -27,10 +27,22 @@ public class AppartementService {
 	 public List<Appartement> getAppartements() {
 		 List<Appartement> ap = appartementRepository.findAll();
 		 System.out.println(ap.size());
-		 return 	ap;
+		 return ap;
 	 }
 	 
 	 public Optional<Appartement> getAppartementsById(Long id) {
 		 return appartementRepository.findById(id);
+	 }
+	 
+	 public List<Appartement> findByVille(String ville) {
+		 return appartementRepository.findByBatiment_Ville(ville);
+	 }
+	 
+	 public List<Appartement> getAppartementsParBatiment(long id) {
+	     return appartementRepository.findByBatiment_Id(id);
+	 }
+	 
+	 public List<Appartement> getAppartementsSupSurface(float surface) {
+	     return appartementRepository.findBySurfaceGreaterThan(surface);
 	 }
 }

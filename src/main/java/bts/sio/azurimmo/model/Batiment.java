@@ -1,10 +1,13 @@
 package bts.sio.azurimmo.model;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -22,6 +25,9 @@ public class Batiment {
 
 	@Column(name="ville")
 	private String ville;
+	
+	@OneToMany(mappedBy = "batiment")
+	private List<Appartement> appartements;
 
 	public Long getId() {
 		return id;
@@ -46,6 +52,13 @@ public class Batiment {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
-	 
+
+	public List<Appartement> getAppartements() {
+		return appartements;
+	}
+
+	public void setAppartements(List<Appartement> appartements) {
+		this.appartements = appartements;
+	}
 	
 }

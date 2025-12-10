@@ -1,0 +1,44 @@
+package bts.sio.azurimmo.controller;
+
+import bts.sio.azurimmo.model.dto.BatimentDTO;
+import bts.sio.azurimmo.service.BatimentService;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+
+@RestController
+@RequestMapping("/api/batiments")
+public class BatimentController {
+	
+    @Autowired
+    private BatimentService batimentService;
+
+	
+    @PostMapping("/")
+    public ResponseEntity<BatimentDTO> createBatiment(@RequestBody BatimentDTO dto) {
+        BatimentDTO savedDTO = batimentService.saveBatimentDTO(dto);
+        return ResponseEntity.status(201).body(savedDTO); // 201 Created
+    }
+    
+    @GetMapping("/")
+    public List<BatimentDTO> getAllBatiments() {
+        return batimentService.getBatimentsDTO(); 
+    }
+    
+    @GetMapping("/{batimentId}")
+    public Optional <BatimentDTO> getBatimentDTO(@PathVariable long batimentId) {
+        return batimentService.getBatimentDTO(batimentId);
+    }
+
+    @GetMapping("/re/{batimentId}")
+    public ResponseEntity<BatimentDTO> getBatimentReDTO(@PathVariable long batimentId) {
+            return batimentService.getBatimentDTO(batimentId)
+                                  .map(ResponseEntity::ok)   // batiment trouvé → 200
+                                  .orElse(ResponseEntity.notFound().build()); // pas trouvé → 404
+    }
+}

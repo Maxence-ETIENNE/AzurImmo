@@ -20,7 +20,7 @@ public class Appartement {
 	private Long id;
 
 	@Column(name="numero")
-	private int numero;
+	private String numero;
 
 	@Column(name="surface")
 	private float surface;
@@ -43,11 +43,11 @@ public class Appartement {
 		this.id = id;
 	}
 
-	public int getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 

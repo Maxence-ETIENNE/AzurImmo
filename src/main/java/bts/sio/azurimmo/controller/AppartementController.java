@@ -34,5 +34,20 @@ public class AppartementController {
     public Optional<Appartement> getAppartementsById(Long id) {
         return appartementService.getAppartementsById(id);
     }
+    
+    @GetMapping("/ville={ville}")
+    public List<Appartement> findByVille(@PathVariable String ville) {
+        return appartementService.findByVille(ville);
+    }
+    
+    @GetMapping("/batiment={batimentId}")
+    public List<Appartement> getAppartementsParBatiment(@PathVariable long batimentId) {
+    	return appartementService.getAppartementsParBatiment(batimentId);
+    }
+    
+    @GetMapping("/surface={surface}")
+    public List<Appartement> getAppartementsSupSurface(@PathVariable float surface) {
+    	return appartementService.getAppartementsSupSurface(surface);
+    }
 
 }
