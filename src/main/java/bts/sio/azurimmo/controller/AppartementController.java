@@ -31,7 +31,7 @@ public class AppartementController {
     }
     
     @GetMapping("/show/{id}")
-    public Optional<Appartement> getAppartementsById(Long id) {
+    public Optional<Appartement> getAppartementsById(@PathVariable Long id) {
         return appartementService.getAppartementsById(id);
     }
     

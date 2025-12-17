@@ -12,6 +12,7 @@ public class AppartementMapper {
         dto.setNumero(a.getNumero());
         dto.setDescription(a.getDescription());
         dto.setSurface(a.getSurface());
+        dto.setNbPieces(a.getNbPieces());
         return dto;
     }
 
@@ -22,6 +23,7 @@ public class AppartementMapper {
         a.setNumero(dto.getNumero());
         a.setDescription(dto.getDescription());
         a.setSurface(dto.getSurface());
+        a.setNbPieces(dto.getNbPieces());
         return a;
     }
 }

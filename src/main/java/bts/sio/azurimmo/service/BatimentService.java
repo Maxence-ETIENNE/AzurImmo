@@ -13,6 +13,10 @@ import bts.sio.azurimmo.model.Batiment;
 import bts.sio.azurimmo.model.dto.BatimentDTO;
 import bts.sio.azurimmo.model.mapper.BatimentMapper;
 import bts.sio.azurimmo.repository.BatimentRepository;
+import bts.sio.azurimmo.model.Appartement;
+import bts.sio.azurimmo.model.dto.AppartementDTO;
+import bts.sio.azurimmo.model.mapper.AppartementMapper;
+import bts.sio.azurimmo.repository.AppartementRepository;
 import lombok.Data;
 
 @Data
@@ -21,10 +25,23 @@ public class BatimentService {
 	
 	 @Autowired
 	 private BatimentRepository batimentRepository;
+	 
+	 @Autowired
+	 private AppartementRepository appartementRepository;
 
 	 public BatimentDTO saveBatimentDTO(BatimentDTO dto) {
 	        Batiment entity = BatimentMapper.toEntity(dto);
 	        Batiment saved = batimentRepository.save(entity);
+	        return BatimentMapper.toDTO(saved);
+	 }
+	 
+	 public BatimentDTO saveAppartementDTO(AppartementDTO dto, long batimentId) {
+	        Batiment bat = batimentRepository.findById(batimentId).orElseThrow(() -> new RuntimeException("Batiment non trouvé"));
+	        Appartement appartement = AppartementMapper.toEntity(dto);
+	        appartement.setBatiment(bat);
+	        appartementRepository.save(appartement);
+	        bat.getAppartements().add(appartement);
+	        Batiment saved = batimentRepository.save(bat);
 	        return BatimentMapper.toDTO(saved);
 	 }
 

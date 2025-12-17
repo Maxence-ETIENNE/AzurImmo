@@ -1,6 +1,7 @@
 package bts.sio.azurimmo.controller;
 
 import bts.sio.azurimmo.model.dto.BatimentDTO;
+import bts.sio.azurimmo.model.dto.AppartementDTO;
 import bts.sio.azurimmo.service.BatimentService;
 
 import java.util.List;
@@ -22,6 +23,12 @@ public class BatimentController {
     @PostMapping("/")
     public ResponseEntity<BatimentDTO> createBatiment(@RequestBody BatimentDTO dto) {
         BatimentDTO savedDTO = batimentService.saveBatimentDTO(dto);
+        return ResponseEntity.status(201).body(savedDTO); // 201 Created
+    }
+    
+    @PutMapping("/addAppartement/{batimentId}")
+    public ResponseEntity<BatimentDTO> addAppartementToBatiment(@RequestBody AppartementDTO dto, @PathVariable long batimentId) {
+        BatimentDTO savedDTO = batimentService.saveAppartementDTO(dto, batimentId);
         return ResponseEntity.status(201).body(savedDTO); // 201 Created
     }
     

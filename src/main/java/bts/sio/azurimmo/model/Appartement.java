@@ -75,10 +75,10 @@ public class Appartement {
 		this.description = description;
 	}
 
-	public Batiment getBatiment() {
-		return batiment;
-	}
-
+//	public Batiment getBatiment() {
+//		return batiment;
+//	}
+//
 	public void setBatiment(Batiment batiment) {
 		this.batiment = batiment;
 	}

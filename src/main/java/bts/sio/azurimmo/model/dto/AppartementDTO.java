@@ -9,6 +9,7 @@ public class AppartementDTO {
 	 private String numero;
 	 private String description;
 	 private Float surface;
+	 private int nbPieces;
 	 
 	 public String getNumero() {
 		 return numero;
@@ -28,6 +29,11 @@ public class AppartementDTO {
 	 public void setSurface(Float surface) {
 		 this.surface = surface;
 	 }
-
+	 public int getNbPieces() {
+		 return nbPieces;
+	 }
+	 public void setNbPieces(int nbPieces) {
+		 this.nbPieces = nbPieces;
+	 }
 	 
 }
