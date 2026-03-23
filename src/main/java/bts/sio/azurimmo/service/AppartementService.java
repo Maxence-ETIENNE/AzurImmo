@@ -26,7 +26,7 @@ public class AppartementService {
 
 	 public List<Appartement> getAppartements() {
 		 List<Appartement> ap = appartementRepository.findAll();
-		 System.out.println(ap.size());
+		 //System.out.println(ap.size());
 		 return ap;
 	 }
 	 

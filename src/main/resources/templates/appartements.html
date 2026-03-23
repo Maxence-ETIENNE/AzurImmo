@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Appartements</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <h1>Liste des appartements</h1>
+    <div class="grid">
+        <div class="card" th:each="appart : ${appartements}">
+            <h2 th:text="'Appartement ' + ${appart.numero}">Numéro</h2>
+            <p th:text="'Surface: ' + ${appart.surface} + 'm²'">Surface</p>
+            <p th:text="${appart.nbPieces} + ' pièces'">Nombre de pièces</p>
+            <p th:text="'Description: ' + ${appart.description}">Description</p>
+        </div>
+    </div>
+</body>
+</html>

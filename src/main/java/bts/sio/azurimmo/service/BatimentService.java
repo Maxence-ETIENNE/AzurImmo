@@ -47,7 +47,7 @@ public class BatimentService {
 
 	 public List<Batiment> getBatiments() {
 		 List<Batiment> ba = batimentRepository.findAll();
-		 System.out.println(ba.size());
+		 //System.out.println(ba.size());
 		 return ba;
 	 }
 	 
